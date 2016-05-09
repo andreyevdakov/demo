@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<title>Demo</title>
+<head>
+</head>    
+<body>
+	<div>
+		<p>
+			Hello, world!
+		</p>
+	</div>
+	<script>
+		function save() {
+			if (window.XMLHttpRequest) {
+				var ajaxObject = new XMLHttpRequest();
+				ajaxObject.open('POST', '/api/save', true);
+				ajaxObject.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+				ajaxObject.send(document.getElementById('data').value);
+			} 
+		}	
+		
+		function getData(callback) {
+			if (window.XMLHttpRequest) {
+				var ajaxObject = new XMLHttpRequest();
+				ajaxObject.open('GET', '/api/data', true);
+				ajaxObject.send();
+				ajaxObject.onreadystatechange = function() {
+					if (ajaxObject.readyState == 4 && ajaxObject.status == 200) {
+						callback(ajaxObject.response);
+					}
+				}
+			} 
+		}
+		
+/*
+		getData((data) => { 
+			document.getElementById('data').value = data;	
+		});
+*/		
+	</script>
+</body>

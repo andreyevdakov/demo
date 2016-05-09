@@ -1,0 +1,19 @@
+{
+	"name": "demo",
+	"description": "Demo Application",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"body-parser": "^1.15.0",
+		"express": "3.x"
+	},
+	"devDependencies": {
+		"chai": "*",
+		"mocha": "*"
+	},
+	"scripts": {
+		"start": "node agent",
+		"test": "mocha test/",
+		"test-watcher": "mocha test/ -watch --reporter min"
+	}
+}
